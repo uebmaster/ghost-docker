@@ -44,7 +44,8 @@ services:
       tinybird__tracker__datasource: analytics_events
       tinybird__stats__endpoint: ${TINYBIRD_API_URL:-https://api.tinybird.co}
     volumes:
-      - ${UPLOAD_LOCATION:-./data/ghost}:/var/lib/ghost/content
+      #- ${UPLOAD_LOCATION:-./data/ghost}:/var/lib/ghost/content
+      - ./data/ghost}:/var/lib/ghost/content
     depends_on:
       db:
         condition: service_healthy
@@ -108,7 +109,8 @@ services:
     expose:
       - "8080"
     volumes:
-      - ${UPLOAD_LOCATION:-./data/ghost}:/opt/activitypub/content
+      #- ${UPLOAD_LOCATION:-./data/ghost}:/opt/activitypub/content
+      - ./data/ghost}:/opt/activitypub/content
     environment:
       NODE_ENV: production
       PORT: 8080
